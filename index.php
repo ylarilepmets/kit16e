@@ -19,4 +19,10 @@ echo "$tervitus World!<br>";
 echo '$tervitus World!<br>';
 echo $array[0];
 
+if ($bool == False) {
+  echo $array;
+} else {
+  echo "Midagi muud";
+}
+
  ?>
