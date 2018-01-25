@@ -46,20 +46,24 @@ for ($i=0; $i < count($hinded) ; $i++) {
      echo $aine.":".$hinne.'<br>';
    }
 }
+
+
 /* counter */
 
-//anname muutujale tegevused
-$file = fopen('countlog.txt',"w") or die("Ei saa faili avada"); //"a"kirjutab sisusse juurde "w"kirjutab üle "r"loeb sisu
-if (!$file) {
-  $txt = 1;
-  fwrite($file,$txt);
-  fclose($file);
-}else {
-  $txt = fread($file, filesize('counter.txt'));
-  $new_txt = $txt++;
-  fwrite($file,$new_txt);
-  fclose($file);
-}
+//opens countlog.txt to read the number of hits
+$datei = fopen("countlog.txt","r");
+$count = fgets($datei,1000);
+fclose($datei);
+$count=$count + 1 ;
+echo "$count" ;
+echo " hits" ;
+echo "\n" ;
+
+// opens countlog.txt to change new hit number
+$datei = fopen("countlog.txt","w");
+fwrite($datei, $count);
+fclose($datei);
+
 
 
 
